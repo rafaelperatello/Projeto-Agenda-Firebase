@@ -31,7 +31,6 @@ public class SearchActivity extends BaseActivity {
         if (Intent.ACTION_SEARCH.equals(intent.getAction())) {
             String query = intent.getStringExtra(SearchManager.QUERY);
             buildSearchListView(query);
-
         }
 
     }

@@ -18,8 +18,6 @@ public class ContatoFirebaseAdapter extends FirebaseListAdapter<Contato> {
 
     public ContatoFirebaseAdapter(Activity activity,  Firebase ref) {
         super(activity, modelClass, modelLayout, ref);
-
-
     }
 
     public ContatoFirebaseAdapter(Activity activity,  Query ref) {
@@ -30,7 +28,6 @@ public class ContatoFirebaseAdapter extends FirebaseListAdapter<Contato> {
     protected void populateView(View view, Contato contato, int position) {
         ((TextView)view.findViewById(R.id.nome)).setText(contato.getNome());
         ((TextView)view.findViewById(R.id.fone)).setText(contato.getFone());
-
     }
 
 }

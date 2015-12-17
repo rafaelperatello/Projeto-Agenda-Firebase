@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="br.edu.ifspsaocarlos.agendafirebase" >
+    package="br.edu.ifspsaocarlos.agendafirebase">
+
     <uses-permission android:name="android.permission.INTERNET" />
     <application
         android:allowBackup="true"
@@ -12,26 +13,25 @@
         <activity
             android:name="br.edu.ifspsaocarlos.agendafirebase.activity.MainActivity"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar" >
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
-             </intent-filter>
+            </intent-filter>
             <meta-data
                 android:name="android.app.default_searchable"
-                android:value=".activity.SearchActivity" />
+                android:value="br.edu.ifspsaocarlos.agendafirebase.activity.SearchActivity" />
         </activity>
 
         <activity
             android:name="br.edu.ifspsaocarlos.agendafirebase.activity.DetalheActivity"
             android:label="@string/title_activity_detalhe"
-            android:theme="@style/AppTheme.NoActionBar" >
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar"></activity>
 
-        <activity android:name="br.edu.ifspsaocarlos.agendafirebase.activity.SearchActivity"
-                 android:launchMode="singleTop"
-                android:theme="@style/AppTheme.NoActionBar">
+        <activity
+            android:name="br.edu.ifspsaocarlos.agendafirebase.activity.SearchActivity"
+            android:launchMode="singleTop"
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.SEARCH" />
             </intent-filter>
@@ -40,8 +40,7 @@
                 android:resource="@xml/searchable" />
         </activity>
 
-        <activity android:name="br.edu.ifspsaocarlos.agendafirebase.activity.BaseActivity" >
-        </activity>
+        <activity android:name="br.edu.ifspsaocarlos.agendafirebase.activity.BaseActivity"></activity>
 
 
     </application>

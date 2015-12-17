@@ -1,12 +1,14 @@
 package br.edu.ifspsaocarlos.agendafirebase.activity;
 
 import android.app.SearchManager;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.ContextMenu;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -17,6 +19,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.firebase.client.Firebase;
+import com.firebase.client.Query;
 
 import br.edu.ifspsaocarlos.agendafirebase.R;
 import br.edu.ifspsaocarlos.agendafirebase.adapter.ContatoFirebaseAdapter;
@@ -68,6 +71,11 @@ public class BaseActivity extends AppCompatActivity {
         SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
         searchView = (SearchView) menu.findItem(R.id.pesqContato).getActionView();
 
+        Log.d("Agenda", "Menu " + searchManager.getSearchableInfo(getComponentName()));
+
+//        ComponentName cn = new ComponentName(getApplicationContext(), SearchActivity.class);
+//        searchView.setSearchableInfo(searchManager.getSearchableInfo(cn));
+
         searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
 
         searchView.setIconifiedByDefault(true);
@@ -105,13 +113,14 @@ public class BaseActivity extends AppCompatActivity {
     protected void buildListView() {
         mAdapter = new ContatoFirebaseAdapter(this,  myFirebaseRef);
         list.setAdapter(mAdapter);
-
-
     }
 
     protected void buildSearchListView(String query) {
-        // EXERCÍCIO PARA ENTREGAR: IMPLEMENTAR
+        Query queryRef = myFirebaseRef.orderByChild("nome").startAt(query).endAt(query +"\uf8ff");
+        mAdapter = new ContatoFirebaseAdapter(this,  queryRef);
+        list.setAdapter(mAdapter);
 
+        Log.d("Agenda", "Query " + query);
     }
 
 
